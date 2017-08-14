@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Edit Form</title>
+</head>
+<body>
+    <div id="container">
+        <div class="title">
+            <h1>Edit {{ item.name }} item</h1>
+        </div>
+        <div id="content">
+            <form action="{{ url_for('edit_action') }}" method="post" target="_blank">
+                <table>
+                    <input type="hidden" name="id" value="{{ item.id }}">
+                    <tr>Name: </tr><input type="text" name="name" value="{{ item.name }}"><br>
+                    <tr>Price: <input type="number" name="price" min="0" step="1" value="{{ item.price }}"><br></tr>
+                    <tr>Quantity: <input type="number" name="quantity" min="0" step="1" value="{{ item.quantity }}"><br></tr>
+                    <tr>Availability:
+                    <input id="availability_true" name="availability" type="radio" value=true {% if item.availability is sameas True %} checked {% endif %}>Yes
+                    <input id="availability_false" name="availability" type="radio" value=false {% if item.availability is sameas False %} checked {% endif %}> No
+                    </tr>
+                </table>
+
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

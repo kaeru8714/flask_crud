@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<br>
+<span style="text-align: left; font-size: 30px;">CRUD implementation with Flask</span>
+<div style="text-align: right; font-size: 20px"><a href="/create">Add a New Item...</a></div>
+<br>
+<span style="text-align: left; font-size: 20px;">List</span>
+<br>
+<table style="width: 100%">
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Availability</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for item in dataSet %}
+    <tr>
+        <th>{{ item.name }}</th>
+        <th>{{ item.price }}</th>
+        <th>{{ item.quantity }}</th>
+        <th>
+            {% if item.availability is sameas True %}
+            <span>Yes</span>
+            {% endif %}
+            {% if item.availability is sameas False %}
+            <span>No</span>
+            {% endif %}
+        </th>
+        <th><a href="/edit/{{ item.id }}">Edit</a></th>
+        <th><a href="/delete/{{ item.id }}">Delete</a></th>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+</body>
+</html>

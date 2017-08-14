@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Create Form</title>
+</head>
+<body>
+    <div id="container">
+        <div class="title">
+            <h1>Add a new item</h1>
+        </div>
+        <div id="content">
+            <form action="{{ url_for('create_action') }}" method="post" target="_blank">
+                <table>
+                    <tr>Name: </tr><input type="text" name="name"><br>
+                    <tr>Price: <input type="number" name="price" min="0" step="1" value="0"><br></tr>
+                    <tr>Quantity: <input type="number" name="quantity" min="0" step="1" value="0"><br></tr>
+                    <tr>Availability:
+                    <input id="availability_true" name="availability" type="radio" value=true checked>Yes
+                    <input id="availability_false" name="availability" type="radio" value=false> No
+                    </tr>
+                </table>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
