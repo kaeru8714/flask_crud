@@ -14,4 +14,3 @@ $ . venv/bin/activate
 2. Install Dependencies
 $ sudo pip3 install Flask
 $ sudo pip3 install mongoengine
-$ sudo pip3 install Flask
